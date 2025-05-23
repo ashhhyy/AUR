@@ -8,25 +8,28 @@ This project includes firmware and a Flask web application for an underwater dro
 - microSD storage
 - Flask web dashboard for control
 
-## 🔧 Hardware
+## Hardware
 - ESP32-CAM
 - L298N motor drivers (2x)
 - AJ-SR04M (3x)
 - MPU6050
-- PCF8574 I2C expander (if needed)
+- PCF8574 I2C expander
 - LM2596S power converter
 - 11.1V LiPo battery
 
-## 📁 Repository Structure
+## Repository Structure
 - `esp32_firmware/` — Arduino source files
 - `flask_web_app/` — Python Flask control dashboard
 - `wiring_diagrams/` — Wiring diagrams
 
-## 🚀 Setup
+## Setup
 
 ### ESP32-CAM
 1. Open `esp32_firmware/main.ino` in Arduino IDE.
-2. Install libraries: `MPU6050_light`, `Ultrasonic`, `ESPAsyncWebServer`, `SD_MMC`
+2. Install libraries: `MPU6050_light`, `Ultrasonic`,
+  bash
+      git clone https://github.com/me-no-dev/ESPAsyncWebServer.git
+      git clone https://github.com/me-no-dev/AsyncTCP.git
 3. Flash to ESP32-CAM.
 
 ### Flask Web App
