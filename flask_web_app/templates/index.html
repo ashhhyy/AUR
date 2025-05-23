@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Underwater Drone Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Underwater Drone Control</h1>
+  <p>Status: <strong>{{ status }}</strong></p>
+  <button onclick="fetch('/on')">Start Drone</button>
+  <button onclick="fetch('/off')">Stop Drone</button>
+</body>
+</html>
+
