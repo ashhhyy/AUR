@@ -1,34 +1,36 @@
-# ESP32-CAM Underwater Drone Project
+# Underwater Drone with ESP32-CAM
 
-## Overview
+This project includes firmware and a Flask web application for an underwater drone using:
+- ESP32-CAM
+- 4 DC motors via L298N
+- 3x AJ-SR04M waterproof ultrasonic sensors
+- MPU6050 gyroscope
+- microSD storage
+- Flask web dashboard for control
 
-This repository contains the complete code for an underwater drone using ESP32-CAM, featuring:
+## 🔧 Hardware
+- ESP32-CAM
+- L298N motor drivers (2x)
+- AJ-SR04M (3x)
+- MPU6050
+- PCF8574 I2C expander (if needed)
+- LM2596S power converter
+- 11.1V LiPo battery
 
-- Camera capture and image saving to microSD on fish detection
-- TensorFlow Lite micro inference placeholder
-- Obstacle avoidance via waterproof ultrasonic sensors
-- Orientation stabilization with MPU6050 gyro
-- Motor control for forward/backward and up/down via two L298N drivers
-- Auto submerge/float features
-- Flask web app dashboard for remote ON/OFF control
+## 📁 Repository Structure
+- `esp32_firmware/` — Arduino source files
+- `flask_web_app/` — Python Flask control dashboard
+- `wiring_diagrams/` — Wiring diagrams (add yours!)
 
----
+## 🚀 Setup
 
-## Setup Instructions
-
-### ESP32 Firmware
-
-1. Open Arduino IDE.
-2. Install required libraries: `ESP32`, `MPU6050`, `NewPing`, `SD_MMC`.
-3. Flash `main.ino` and all supporting `.cpp` and `.h` files in `esp32_firmware/`.
-4. Wire motors and sensors according to the pin definitions in the code.
-5. Insert a microSD card for image saving.
+### ESP32-CAM
+1. Open `esp32_firmware/main.ino` in Arduino IDE.
+2. Install libraries: `MPU6050_light`, `Ultrasonic`, `ESPAsyncWebServer`, `SD_MMC`
+3. Flash to ESP32-CAM.
 
 ### Flask Web App
-
-1. Install Python 3.7+.
-2. Create a virtual environment (recommended):
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # Linux/macOS
-   venv\Scripts\activate     # Windows
+```bash
+cd flask_web_app
+pip install -r requirements.txt
+python app.py
