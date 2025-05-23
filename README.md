@@ -20,7 +20,7 @@ This project includes firmware and a Flask web application for an underwater dro
 ## 📁 Repository Structure
 - `esp32_firmware/` — Arduino source files
 - `flask_web_app/` — Python Flask control dashboard
-- `wiring_diagrams/` — Wiring diagrams (add yours!)
+- `wiring_diagrams/` — Wiring diagrams
 
 ## 🚀 Setup
 
