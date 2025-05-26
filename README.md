@@ -17,8 +17,7 @@
 
 - Provides a web interface to turn the drone ON/OFF.
 - Displays the 5 most recent images uploaded from the drone.
-- Receives images uploaded via HTTP POST.
-- Responsive and user-friendly UI.
+
 
 ---
 
