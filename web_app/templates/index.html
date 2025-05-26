@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Underwater Drone Control</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 2em;
+  }
+  button {
+    font-size: 1.2em;
+    margin: 1em;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button.on {
+    background-color: #0074d9;
+    color: white;
+  }
+  button.off {
+    background-color: #ff4136;
+    color: white;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  .gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+  }
+  .gallery img {
+    margin: 1em;
+    border-radius: 10px;
+    max-width: 180px;
+    max-height: 135px;
+    object-fit: cover;
+    box-shadow: 0 0 10px #0074d9;
+  }
+</style>
+</head>
+<body>
+  <h1>Underwater Drone Control Dashboard</h1>
+  <a href="/control?state=on"><button class="on">Turn ON</button></a>
+  <a href="/control?state=off"><button class="off">Turn OFF</button></a>
+  <p>Latest 5 images captured by the drone:</p>
+  <div class="gallery">
+    {% for image_path in images %}
+      <img src="{{ url_for('static', filename=image_path) }}" alt="Drone Image" />
+    {% else %}
+      <p>No images available yet.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>
