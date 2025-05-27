@@ -1,64 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Underwater Drone Control</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #001f3f;
-    color: white;
-    text-align: center;
-    padding: 2em;
-  }
-  button {
-    font-size: 1.2em;
-    margin: 1em;
-    padding: 1em 2em;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button.on {
-    background-color: #0074d9;
-    color: white;
-  }
-  button.off {
-    background-color: #ff4136;
-    color: white;
-  }
-  button:hover {
-    opacity: 0.8;
-  }
-  .gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2em;
-  }
-  .gallery img {
-    margin: 1em;
-    border-radius: 10px;
-    max-width: 180px;
-    max-height: 135px;
-    object-fit: cover;
-    box-shadow: 0 0 10px #0074d9;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Underwater Drone Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; }
+    .container { padding: 20px; }
+    .image-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .image-grid img { height: 150px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+    button { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; border: none; border-radius: 5px; }
+    .on { background-color: #4CAF50; color: white; }
+    .off { background-color: #f44336; color: white; }
+  </style>
 </head>
 <body>
-  <h1>Underwater Drone Control Dashboard</h1>
-  <a href="/control?state=on"><button class="on">Turn ON</button></a>
-  <a href="/control?state=off"><button class="off">Turn OFF</button></a>
-  <p>Latest 5 images captured by the drone:</p>
-  <div class="gallery">
-    {% for image_path in images %}
-      <img src="{{ url_for('static', filename=image_path) }}" alt="Drone Image" />
-    {% else %}
-      <p>No images available yet.</p>
-    {% endfor %}
+  <div class="container">
+    <h1>Underwater Drone Control</h1>
+    <form action="/control" method="POST">
+      <button name="state" value="ON" class="on">Turn ON</button>
+      <button name="state" value="OFF" class="off">Turn OFF</button>
+    </form>
+
+    <h2>Latest Captured Images</h2>
+    <div class="image-grid">
+      {% for image in images %}
+        <img src="/images/{{ image }}" alt="Drone Capture">
+      {% endfor %}
+    </div>
   </div>
 </body>
 </html>
